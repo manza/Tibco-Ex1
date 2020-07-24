@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd" xmlns:wsdlPfx="http://xmlns.example.com/1594948795149" xmlns:ns1="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd2">
+    <wsdl:import namespace="http://xmlns.example.com/1594948795149" location="/SoapWS/ProductWSDL.wsdl"/>
+    <pd:name>SoapWS/ProductMgrProductOperation.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType wsMsgRef="wsdlPfx:ProductInput"/>
+    <pd:startX>150</pd:startX>
+    <pd:startY>65</pd:startY>
+    <pd:returnBindings>
+        <wsdlPfx:ProductOutput>
+            <ProductOutput>
+                <xsl:copy-of select="$Call-Process/wsdlPfx:ProductOutput/ProductOutput/ns1:ProductDetails"/>
+            </ProductOutput>
+        </wsdlPfx:ProductOutput>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType wsMsgRef="wsdlPfx:ProductOutput"/>
+    <pd:endX>450</pd:endX>
+    <pd:endY>65</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1594949790660</pd:targetNamespace>
+    <pd:activity name="Call Process">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>283</pd:x>
+        <pd:y>61</pd:y>
+        <config>
+            <processName>/Examples/j_ProductProcess.process</processName>
+        </config>
+        <pd:inputBindings>
+            <wsdlPfx:ProductInput>
+                <request>
+                    <ns:Product>
+                        <ns:ProductId>
+                            <xsl:value-of select="$Start/wsdlPfx:ProductInput/request/ns:Product/ns:ProductId"/>
+                        </ns:ProductId>
+                    </ns:Product>
+                </request>
+            </wsdlPfx:ProductInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Call Process</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Call Process</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd" xmlns:tns="http://xmlns.example.com/1594948795149" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd2" targetNamespace="http://xmlns.example.com/1594948795149">
+    <import namespace="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd" location="../Schemas/ProductRequest.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd2" location="../Schemas/ProductResponse.xsd"/>
+    <message name="ProductInput">
+        <part name="request" element="ns:Product"/>
+    </message>
+    <message name="ProductOutput">
+        <part name="ProductOutput" element="ns2:ProductDetails"/>
+    </message>
+    <portType name="ProductMgr">
+        <operation name="ProductOperation">
+            <input message="tns:ProductInput"/>
+            <output message="tns:ProductOutput"/>
+        </operation>
+    </portType>
+</definitions>

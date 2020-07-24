@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002">
+    <enterpriseArchive>
+        <sharedArchive name="Shared Archive">
+            <resourceType>shared.archive.resource</resourceType>
+            <authorProperty>manza</authorProperty>
+        </sharedArchive>
+        <processArchive name="Process Archive">
+            <resourceType>process.archive.resource</resourceType>
+            <authorProperty>manza</authorProperty>
+            <processProperty>/Examples/h_FilePooler.process,/Examples/a_HelloWorld.process,/Examples/b_GlobalVariables.process,/Examples/c_Conditions.process,/Examples/d_How to debug.process,/Examples/e_SubProcesses.process,/Examples/g_Create file.process</processProperty>
+        </processArchive>
+        <versionProperty>3</versionProperty>
+        <authorProperty>manza</authorProperty>
+        <addServiceSettableGvars>true</addServiceSettableGvars>
+        <name>Tibco-Ex1</name>
+        <designer>
+            <lockedProperties/>
+            <fixedChildren/>
+            <resourceDescriptions/>
+        </designer>
+        <fileLocationProperty>C:\temp\Tibco-Ex1\target\Tibco-Ex1.ear</fileLocationProperty>
+    </enterpriseArchive>
+</Repository:repository>

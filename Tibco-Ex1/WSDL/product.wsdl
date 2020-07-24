@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1594949790567" xmlns:ns0="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd" xmlns:ns1="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.example.com/1594949790567">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="Product">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:ProductId"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ProductId" type="xs:string"/>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="Description" type="xs:string"/>
+            <xs:element name="Price" type="xs:float"/>
+            <xs:element name="ProductDetails">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:ProductId"/>
+                        <xs:element ref="ns1:Description"/>
+                        <xs:element ref="ns1:Price"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ProductId" type="xs:string"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="ProductWSDL-service0">
+        <wsdl:port name="ProductMgrEndpoint0" binding="tns:ProductMgrEndpoint0Binding">
+            <soap:address location="http://localhost:3001/SoapWS/ProductWSDL-service0.serviceagent/ProductMgrEndpoint0"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="ProductMgr">
+        <wsdl:operation name="ProductOperation">
+            <wsdl:input message="tns:ProductInput"/>
+            <wsdl:output message="tns:ProductOutput"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ProductMgrEndpoint0Binding" type="tns:ProductMgr">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ProductOperation">
+            <soap:operation style="document" soapAction="/SoapWS/ProductWSDL-service0.serviceagent/ProductMgrEndpoint0/ProductOperation"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="ProductOutput"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="ProductInput">
+        <wsdl:part name="request" element="ns0:Product"/>
+    </wsdl:message>
+    <wsdl:message name="ProductOutput">
+        <wsdl:part name="ProductOutput" element="ns1:ProductDetails"/>
+    </wsdl:message>
+</wsdl:definitions>

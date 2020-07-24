@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd2"
+	 targetNamespace="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd2"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="ProductDetails">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ProductId"/>
+				<xs:element ref="Description"/>
+				<xs:element ref="Price"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ProductId" type="xs:string"/>
+	<xs:element name="Description" type="xs:string"/>
+	<xs:element name="Price" type="xs:float"/>
+</xs:schema>

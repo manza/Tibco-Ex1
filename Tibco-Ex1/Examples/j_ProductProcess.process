@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://xmlns.example.com/1594948795149" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.tibco.com/schemas/Tibco-Ex1/Schemas/Schema.xsd">
+    <wsdl:import namespace="http://xmlns.example.com/1594948795149" location="/SoapWS/ProductWSDL.wsdl"/>
+    <pd:name>Examples/j_ProductProcess.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType wsMsgRef="pfx:ProductInput"/>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings>
+        <pfx:ProductOutput>
+            <ProductOutput>
+                <ns:ProductDetails>
+                    <ns:ProductId>
+                        <xsl:value-of select="$Start/pfx:ProductInput/request/ns1:Product/ns1:ProductId"/>
+                    </ns:ProductId>
+                    <ns:Description>
+                        <xsl:value-of select="&quot;Product description&quot;"/>
+                    </ns:Description>
+                    <ns:Price>
+                        <xsl:value-of select="1022.23"/>
+                    </ns:Price>
+                </ns:ProductDetails>
+            </ProductOutput>
+        </pfx:ProductOutput>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType wsMsgRef="pfx:ProductOutput"/>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:partners/>
+    <pd:targetNamespace>http://xmlns.example.com/1594949311306</pd:targetNamespace>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:label>
+        <pd:name>Label</pd:name>
+        <pd:description>Query in Database would be here in real scenario</pd:description>
+        <pd:x>299</pd:x>
+        <pd:y>106</pd:y>
+        <pd:width>160</pd:width>
+        <pd:height>74</pd:height>
+        <pd:fontColor>-16777216</pd:fontColor>
+        <pd:color>-1</pd:color>
+        <pd:type>solid</pd:type>
+        <pd:thickness>0</pd:thickness>
+        <pd:fade>true</pd:fade>
+    </pd:label>
+</pd:ProcessDefinition>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BWSharedResource>
+    <name>Database_1</name>
+    <resourceType>ae.shared.JDBCSharedResource</resourceType>
+    <config>
+        <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+        <maxConnections>10</maxConnections>
+        <loginTimeout>1</loginTimeout>
+        <connectionType>JDBC</connectionType>
+        <UseSharedJndiConfig>false</UseSharedJndiConfig>
+        <location>jdbc:sqlserver://SQLEXPRESS:1433;databaseName=&lt;databaseName&gt;</location>
+        <user>sa</user>
+        <password>#!IYfJOdxApcEDIpQ6jYdZAvYThsSlmGzC</password>
+    </config>
+</BWSharedResource>
